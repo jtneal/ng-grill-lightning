@@ -8,12 +8,14 @@ import { environment } from '../environments/environment';
 import { MicroFrontendModule } from 'ng-micro-frontend';
 import { BreakfastComponent } from './breakfast/breakfast.component';
 import { LunchComponent } from './lunch/lunch.component';
+import { DinnerComponent } from './dinner/dinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BreakfastComponent,
-    LunchComponent
+    LunchComponent,
+    DinnerComponent
   ],
   imports: [
     BrowserModule,
