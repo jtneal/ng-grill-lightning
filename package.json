@@ -16,6 +16,7 @@
     "start:locations": "ng serve --project locations",
     "start:menu": "ng serve --project menu",
     "start:order": "ng serve --project order",
+    "start:shell": "ng serve --project shell",
     "e2e": "ng e2e"
   },
   "private": true,
