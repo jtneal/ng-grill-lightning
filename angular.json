@@ -135,7 +135,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/menu",
             "index": "projects/menu/src/index.html",
@@ -150,7 +150,8 @@
             "styles": [
               "projects/menu/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/menu/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -178,18 +179,22 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/menu/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "menu:build"
+            "browserTarget": "menu:build",
+            "port": 4210,
+            "extraWebpackConfig": "projects/menu/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "menu:build:production"
+              "browserTarget": "menu:build:production",
+              "extraWebpackConfig": "projects/menu/webpack.prod.config.js"
             }
           }
         },
@@ -200,7 +205,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/menu/src/test.ts",
             "polyfills": "projects/menu/src/polyfills.ts",
@@ -213,7 +218,8 @@
             "styles": [
               "projects/menu/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/menu/webpack.config.js"
           }
         },
         "lint": {
