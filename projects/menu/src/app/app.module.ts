@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { createCustomElement } from '@angular/elements';
 import { environment } from '../environments/environment';
 import { MicroFrontendModule } from 'ng-micro-frontend';
+import { BreakfastComponent } from './breakfast/breakfast.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BreakfastComponent
   ],
   imports: [
     BrowserModule,
