@@ -514,7 +514,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/emails",
             "index": "projects/emails/src/index.html",
@@ -529,7 +529,8 @@
             "styles": [
               "projects/emails/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/emails/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -557,18 +558,22 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/emails/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "emails:build"
+            "browserTarget": "emails:build",
+            "port": 4240,
+            "extraWebpackConfig": "projects/emails/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "emails:build:production"
+              "browserTarget": "emails:build:production",
+              "extraWebpackConfig": "projects/emails/webpack.prod.config.js"
             }
           }
         },
@@ -579,7 +584,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/emails/src/test.ts",
             "polyfills": "projects/emails/src/polyfills.ts",
@@ -592,7 +597,8 @@
             "styles": [
               "projects/emails/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/emails/webpack.config.js"
           }
         },
         "lint": {

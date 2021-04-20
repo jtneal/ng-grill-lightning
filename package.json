@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build:element": "npm run build -- --prod --single-bundle true",
+    "build:element:emails": "npm run build:element --project emails",
     "build:element:locations": "npm run build:element --project locations",
     "build:element:menu": "npm run build:element --project menu",
     "build:element:order": "npm run build:element --project order",
@@ -13,6 +14,7 @@
     "test": "ng test",
     "prestart": "ngcc",
     "lint": "ng lint",
+    "start:emails": "ng serve --project emails",
     "start:locations": "ng serve --project locations",
     "start:menu": "ng serve --project menu",
     "start:order": "ng serve --project order",
