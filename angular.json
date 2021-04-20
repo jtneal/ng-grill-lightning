@@ -501,6 +501,126 @@
           }
         }
       }
+    },
+    "emails": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/emails",
+      "sourceRoot": "projects/emails/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/emails",
+            "index": "projects/emails/src/index.html",
+            "main": "projects/emails/src/main.ts",
+            "polyfills": "projects/emails/src/polyfills.ts",
+            "tsConfig": "projects/emails/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/emails/src/favicon.ico",
+              "projects/emails/src/assets"
+            ],
+            "styles": [
+              "projects/emails/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/emails/src/environments/environment.ts",
+                  "with": "projects/emails/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "emails:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "emails:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "emails:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/emails/src/test.ts",
+            "polyfills": "projects/emails/src/polyfills.ts",
+            "tsConfig": "projects/emails/tsconfig.spec.json",
+            "karmaConfig": "projects/emails/karma.conf.js",
+            "assets": [
+              "projects/emails/src/favicon.ico",
+              "projects/emails/src/assets"
+            ],
+            "styles": [
+              "projects/emails/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/emails/tsconfig.app.json",
+              "projects/emails/tsconfig.spec.json",
+              "projects/emails/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/emails/e2e/protractor.conf.js",
+            "devServerTarget": "emails:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "emails:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "shell"
