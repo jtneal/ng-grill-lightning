@@ -5,6 +5,7 @@
     "ng": "ng",
     "build:element": "npm run build -- --prod --single-bundle true",
     "build:element:menu": "npm run build:element --project menu",
+    "build:element:order": "npm run build:element --project order",
     "build:elements": "run-p build:element:**",
     "start": "run-p \"start:* -- --prod --single-bundle true\"",
     "build": "ng build",
@@ -12,6 +13,7 @@
     "prestart": "ngcc",
     "lint": "ng lint",
     "start:menu": "ng serve --project menu",
+    "start:order": "ng serve --project order",
     "e2e": "ng e2e"
   },
   "private": true,

@@ -261,7 +261,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/order",
             "index": "projects/order/src/index.html",
@@ -276,7 +276,8 @@
             "styles": [
               "projects/order/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/order/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -304,18 +305,22 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/order/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "order:build"
+            "browserTarget": "order:build",
+            "port": 4220,
+            "extraWebpackConfig": "projects/order/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "order:build:production"
+              "browserTarget": "order:build:production",
+              "extraWebpackConfig": "projects/order/webpack.prod.config.js"
             }
           }
         },
@@ -326,7 +331,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/order/src/test.ts",
             "polyfills": "projects/order/src/polyfills.ts",
@@ -339,7 +344,8 @@
             "styles": [
               "projects/order/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/order/webpack.config.js"
           }
         },
         "lint": {
