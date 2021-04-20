@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build:element": "npm run build -- --prod --single-bundle true",
+    "build:element:locations": "npm run build:element --project locations",
     "build:element:menu": "npm run build:element --project menu",
     "build:element:order": "npm run build:element --project order",
     "build:elements": "run-p build:element:**",
@@ -12,6 +13,7 @@
     "test": "ng test",
     "prestart": "ngcc",
     "lint": "ng lint",
+    "start:locations": "ng serve --project locations",
     "start:menu": "ng serve --project menu",
     "start:order": "ng serve --project order",
     "e2e": "ng e2e"
